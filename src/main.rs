@@ -1,3 +1,8 @@
+mod app;
+use app::App;
+
 fn main() {
-    println!("Hello, world!");
+    let app = App::default();
+
+    app.mode_select();
 }
