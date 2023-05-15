@@ -3,13 +3,8 @@ mod app;
 use app::App;
 
 fn main() {
-    let app = App::default();
-
-    app.show_menu();
-    let selected_mode = app.mode_select().unwrap_or_else(|err| {
-        eprintln!("ERR: Error while mode selection -> {err}");
-        std::process::exit(-1);
+    let mut app = App::default();
+    app.run().unwrap_or_else(|err| {
+        eprintln!("ERR: There was an error with an application -> {err}");
     });
-
-    app.run_game(selected_mode);
 }
